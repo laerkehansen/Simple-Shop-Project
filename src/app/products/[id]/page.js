@@ -15,12 +15,15 @@ const Product = async ({ params }) => {
       ></Image>
       <ul className="flex gap-2">
         {product.images.map((image) => (
-          <Image
-            src={`${image}`}
-            height={100}
-            width={100}
-            alt={product.title}
-          ></Image>
+          <li key={product.id}>
+            {" "}
+            <Image
+              src={`${image}`}
+              height={100}
+              width={100}
+              alt={product.title}
+            ></Image>
+          </li>
         ))}
       </ul>
       {/* <div>{product.images}</div> */}
