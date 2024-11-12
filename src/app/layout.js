@@ -24,9 +24,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}>
         <header className="">
           <nav className="flex bg-pink-200 text-pink-400 py-6 text-xl justify-between px-10">
             <Link href="/">
