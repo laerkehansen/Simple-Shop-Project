@@ -1,57 +1,50 @@
 import Image from "next/image";
 import Link from "next/link";
 import Star from "../img/star.svg";
-import { IoIosArrowForward } from "react-icons/io";
-import { IoIosArrowDown } from "react-icons/io";
+import Category from "../components/Category";
+import Button from "../components/Button";
+import { FaStar } from "react-icons/fa6";
+import { FaRegStar } from "react-icons/fa";
+import { FaStarHalfAlt } from "react-icons/fa";
 
 const Products = async ({}) => {
   let response = await fetch("https://dummyjson.com/products");
   let data = await response.json();
   return (
-    <section className="grid grid-cols-subgrid gap-6 mt-4  col-start-2 col-end-5">
-      <section className="flex flex-col gap-2">
-        <div className="bg-primary-black rounded-2xl h-fit py-6">
-          <div className="flex items-center justify-between pr-4">
-            <h2 className="pl-4 text-2xl">Kategori</h2>
-            <IoIosArrowDown />
-          </div>
-          <ul className="pl-7">
-            <li>Beauty</li>
-            <li>Furniture</li>
-            <li>Food</li>
-            <li>Parfume</li>
-          </ul>
-        </div>
-        <div className="flex items-center justify-between pr-4 bg-primary-black rounded-2xl h-fit py-6">
-          <h2 className="pl-4 text-2xl">Kategori</h2>
-          <IoIosArrowForward className="" />
-        </div>
-        <div className="flex items-center justify-between pr-4 bg-primary-black rounded-2xl h-fit py-6">
-          <h2 className="pl-4 text-2xl">Kategori</h2>
-          <IoIosArrowForward className="" />
-        </div>
-        <div className="flex items-center justify-between pr-4 bg-primary-black rounded-2xl h-fit py-6">
-          <h2 className="pl-4 text-2xl">Kategori</h2>
-          <IoIosArrowForward className="" />
-        </div>
-      </section>
-      <section className="grid grid-cols-[repeat(2,minmax(0,450px))] justify-center gap-8 col-start-2 col-end-4 ">
+    <section className="grid grid-rows-[0.1fr_2fr] grid-cols-subgrid gap-4 xl:gap-6 mt-4 col-span-full lg:grid-rows-[2fr_0.1fr]">
+      <Category />
+      <section className="grid grid-cols-[repeat(2,minmax(0,325px))] justify-center gap-2 col-span-full mx-2  md:grid-cols-[repeat(3,minmax(0,325px))] md:col-span-full lg:col-start-2 lg:col-end-7 lg:row-start-1 ">
         {data.products.map((product) => (
-          <div key={product.id} className="bg-secondary-gray text-orange-950 rounded-3xl grid pt-6">
+          <div key={product.id} className="bg-secondary-gray text-orange-950 rounded-xl grid p-2 gap-4">
             <Link href={`/products/${product.id}`} className="justify-self-center">
-              <Image src={`${product.thumbnail}`} alt={product.title} width={250} height={250}></Image>
+              <Image src={`${product.thumbnail}`} alt={product.title} width={200} height={200}></Image>
             </Link>
-            <div className="grid grid-rows-[0.2fr_1fr_0.5fr] p-6">
-              <Image src={Star} />
-              <div className="flex justify-between">
-                <div className="">
-                  <h1 className="text-xl font-bold w-64">{product.title}</h1>
-                  <h2 className="font-thin">{product.brand}</h2>
-                </div>
-                <p>{product.price}$</p>
+            <div className="grid self-end">
+              {/* <Image src={Star} /> */}
+              <div className="flex gap-1">
+                {Array.from({ length: 5 }, (_, index) => {
+                  if (index < Math.floor(product.rating)) {
+                    return <FaStar key={index} color="#7790ed" size={20} />;
+                  } else if (index < Math.floor(product.rating) + 1 && product.rating % 1 >= 0.5) {
+                    return <FaStarHalfAlt key={index} color="#7790ed" size={20} />;
+                  } else {
+                    return <FaRegStar key={index} color="#7790ed" size={20} />;
+                  }
+                })}
               </div>
-              <div className="flex justify-end">
-                <button className="bg-primary-blue rounded-xl px-3 py-2 w-fit text-white">Tilføj til kurv</button>
+              <div className="flex justify-between items-start">
+                <h1 className="text-xl font-bold max-w-[14rem] ">{product.title}</h1>
+                {/* <h2 className="font-thin">{product.brand}</h2> */}
+                <p className="">{product.price} $</p>
+              </div>
+              <ul className="flex gap-2 text-[0.85rem]">
+                {product.tags.map((tag) => (
+                  <li key={tag}>{tag}</li>
+                ))}
+              </ul>
+              <div className="grid justify-end">
+                {/* <button className="bg-primary-blue rounded-xl px-3 py-2 text-white">Tilføj til kurv</button> */}
+                <Button></Button>
               </div>
             </div>
           </div>
