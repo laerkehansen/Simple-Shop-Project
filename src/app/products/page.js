@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import Star from "../img/star.svg";
+import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
 
 const Products = async ({}) => {
   let response = await fetch("https://dummyjson.com/products");
@@ -9,16 +11,28 @@ const Products = async ({}) => {
     <section className="grid grid-cols-[0.2fr_0.5fr_2fr_0.2fr] gap-6 mt-4">
       <section className="col-start-2 flex flex-col gap-2">
         <div className="bg-primary-black rounded-2xl h-fit py-6">
-          <h2 className="pl-4 text-xl">Kategori</h2>
+          <div className="flex items-center justify-between pr-4">
+            <h2 className="pl-4 text-2xl">Kategori</h2>
+            <IoIosArrowDown />
+          </div>
+          <ul className="pl-7">
+            <li>Beauty</li>
+            <li>Furniture</li>
+            <li>Food</li>
+            <li>Parfume</li>
+          </ul>
         </div>
-        <div className="bg-primary-black rounded-2xl h-fit py-6">
-          <h2 className="pl-4 text-xl">Tags</h2>
+        <div className="flex items-center justify-between pr-4 bg-primary-black rounded-2xl h-fit py-6">
+          <h2 className="pl-4 text-2xl">Kategori</h2>
+          <IoIosArrowForward className="" />
         </div>
-        <div className="bg-primary-black rounded-2xl h-fit py-6">
-          <h2 className="pl-4 text-xl">Price</h2>
+        <div className="flex items-center justify-between pr-4 bg-primary-black rounded-2xl h-fit py-6">
+          <h2 className="pl-4 text-2xl">Kategori</h2>
+          <IoIosArrowForward className="" />
         </div>
-        <div className="bg-primary-black rounded-2xl h-fit py-6">
-          <h2 className="pl-4 text-xl">Rating</h2>
+        <div className="flex items-center justify-between pr-4 bg-primary-black rounded-2xl h-fit py-6">
+          <h2 className="pl-4 text-2xl">Kategori</h2>
+          <IoIosArrowForward className="" />
         </div>
       </section>
       <section className="grid grid-cols-[repeat(2,minmax(0,450px))] justify-center gap-8 col-start-3">
