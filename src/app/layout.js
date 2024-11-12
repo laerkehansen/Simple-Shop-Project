@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}
       >
         <header className="">
-          <nav className="flex bg-pink-200 text-pink-400 py-6 text-xl justify-between px-10">
+          <nav className="flex bg-primary-black text-secondary-gray py-6 text-xl justify-between px-10">
             <Link href="/">
               <Image src={Logo} alt="logo af brandet" />
             </Link>

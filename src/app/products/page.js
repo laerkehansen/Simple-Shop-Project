@@ -10,7 +10,7 @@ const Products = async ({}) => {
       {data.products.map((product) => (
         <div
           key={product.id}
-          className="bg-orange-200 text-orange-950 rounded-3xl grid pt-6"
+          className="bg-secondary-gray text-orange-950 rounded-3xl grid pt-6"
         >
           <Link
             href={`/products/${product.id}`}
@@ -33,7 +33,7 @@ const Products = async ({}) => {
               <p>{product.price}$</p>
             </div>
             <div className="flex justify-end">
-              <button className="bg-red-400 rounded-xl px-3 py-2 w-fit text-white">
+              <button className="bg-primary-blue rounded-xl px-3 py-2 w-fit text-white">
                 Tilføj til kurv
               </button>
             </div>
