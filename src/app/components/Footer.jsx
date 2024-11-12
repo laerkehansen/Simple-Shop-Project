@@ -2,7 +2,7 @@ import Image from "next/image";
 import logo from "../img/logo.svg";
 const Footer = () => {
   return (
-    <footer className="bg-[#292621] rounded-t-lg">
+    <footer className="bg-primary-black rounded-t-lg">
       <div className="flex justify-between pt-14 pb-14 pr-6 pl-6">
         <div>
           <Image src={logo} alt="hej" />

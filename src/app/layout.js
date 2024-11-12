@@ -25,8 +25,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}>
-        <header className="">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white grid grid-cols-[1fr_1fr_2fr_3fr_1fr_1fr]`}>
+        <header className="col-start-3 col-end-5 grid">
           <nav className="flex bg-primary-black text-secondary-gray py-6 text-xl justify-between px-10">
             <Link href="/">
               <Image src={Logo} alt="logo af brandet" />
@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
           </nav>
         </header>
         {children}
-        <Footer></Footer>
+        <Footer className="col-start-2 col-end-4 grid"></Footer>
       </body>
     </html>
   );
