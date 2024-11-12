@@ -8,23 +8,30 @@ const Product = async ({ params }) => {
   let product = await response.json();
 
   return (
-    <section className="">
+    <section className="col-start-2 col-end-6 pt-4 pb-28">
       <a href="/products">Tilbage</a>
       <div className="grid-cols-[2fr_1fr] grid gap-5">
         <Gallery thumbnail={product.thumbnail} images={product.images} title={product.title} />
-        <div>
-          <ul className="flex gap-2 text-gray-700 text-[16px]">
-            {product.tags.map((tag) => (
-              <li className="" key={tag}>
-                {tag}
-              </li>
-            ))}
-          </ul>
-          <h1 className="text-3xl">{product.title}</h1>
-          <p className="text-[17px] text-gray-700">{product.brand} </p>
-          <p>{product.price} kr</p>
+        <div className="grid">
+          <div>
+            <ul className="flex gap-2 text-gray-400 text-[16px] ">
+              {product.tags.map((tag) => (
+                <li className="" key={tag}>
+                  {tag}
+                </li>
+              ))}
+            </ul>
+
+            <h1 className="text-3xl">{product.title}</h1>
+            <p className="text-[17px] text-gray-700">{product.brand} </p>
+            <p>{product.price} kr,-</p>
+          </div>
+
           {/* <p>{product.discountPercentage}</p> */}
-          <Button></Button>
+          <div>
+            <Button></Button>
+          </div>
+
           <p>{product.description}</p>
 
           <Accordion dimensions={product.dimensions} warrantyInformation={product.warrantyInformation} shippingInformation={product.shippingInformation} sku={product.sku} />
