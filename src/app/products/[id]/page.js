@@ -8,9 +8,9 @@ const Product = async ({ params }) => {
   let product = await response.json();
 
   return (
-    <section className="col-start-2 col-end-6 pt-4 pb-28">
+    <section className="col-start-2 col-end-6 pt-4 pb-28 ">
       <a href="/products">Tilbage</a>
-      <div className="grid-cols-[2fr_1fr] grid gap-5">
+      <div className="lg:grid-cols-[2fr_1fr] grid gap-5">
         <Gallery thumbnail={product.thumbnail} images={product.images} title={product.title} />
         <div className="grid">
           <div>
