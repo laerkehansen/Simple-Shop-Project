@@ -1,6 +1,7 @@
 import Accordion from "@/app/components/Acordian";
 import Button from "@/app/components/Button";
 import Gallery from "@/app/components/Gallery";
+import ScrollContainer from "@/app/components/ScrollContainer";
 
 const Product = async ({ params }) => {
   const id = (await params).id;
@@ -37,6 +38,7 @@ const Product = async ({ params }) => {
           <Accordion dimensions={product.dimensions} warrantyInformation={product.warrantyInformation} shippingInformation={product.shippingInformation} sku={product.sku} />
         </div>
       </div>
+      <ScrollContainer reviews={product.reviews} />
     </section>
   );
 };
