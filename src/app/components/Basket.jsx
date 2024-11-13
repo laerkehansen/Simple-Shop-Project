@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import Star from "../img/star.svg";
-import { useState } from "react";
 
 const Basket = ({ isOpen, setIsOpen }) => {
   return (
