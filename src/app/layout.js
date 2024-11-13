@@ -4,8 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import Logo from "../app/img/logo.svg";
 
-import Header from "./components/header";
-
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -28,7 +26,6 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white grid grid-cols-[1fr_1fr_2fr_3fr_1fr_1fr] grid-rows-[auto_auto_auto]`}
       >
-        <Header></Header>
         {children}
         <footer className="bg-primary-black rounded-t-lg col-start-2 col-end-6 grid">
           <div className="flex justify-between pt-14 pb-14 pr-6 pl-6">
