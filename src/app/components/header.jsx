@@ -1,12 +1,37 @@
+"use client";
+import BasketIcon from "../img/basket.svg";
+import Basket from "./Basket";
+import Link from "next/link";
+import Image from "next/image";
+import Logo from "../img/logo.svg";
+import { useState } from "react";
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(true);
+
   return (
-    <header>
-      <nav>
-        <ul>
-          <li>Home</li>
-          <li>Products</li>
+    <header className="col-start-3 col-end-5 grid grid-rows-1">
+      <nav className="flex bg-primary-black text-secondary-gray py-6 text-xl justify-between px-10">
+        <Link href="/">
+          <Image src={Logo} alt="logo af brandet" />
+        </Link>
+        <ul className="flex gap-4 items-center">
+          <li>
+            <Link href="/">Home</Link>
+          </li>
+          <li>
+            <Link href="/products">Products</Link>
+          </li>
+          <button
+            onClick={() => {
+              setIsOpen(!isOpen);
+              console.log("basket", isOpen);
+            }}
+          >
+            <Image src={BasketIcon} alt="illustration af kurv" />
+          </button>
         </ul>
       </nav>
+      <Basket isOpen={isOpen} setIsOpen={setIsOpen}></Basket>
     </header>
   );
 };

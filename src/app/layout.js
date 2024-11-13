@@ -3,7 +3,8 @@ import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "../app/img/logo.svg";
-import Basket from "../app/img/basket.svg";
+
+import Header from "./components/header";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,23 +25,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white grid grid-cols-[1fr_1fr_2fr_3fr_1fr_1fr] grid-rows-[auto_auto_auto]`}>
-        <header className="col-start-2 col-end-6 grid grid-rows-1  ">
-          <nav className="flex bg-primary-black text-secondary-gray py-6 text-xl justify-between px-10 rounded-lg mt-4">
-            <Link href="/">
-              <Image src={Logo} alt="logo af brandet" />
-            </Link>
-            <ul className="flex gap-4 items-center">
-              <li>
-                <Link href="/">Home</Link>
-              </li>
-              <li>
-                <Link href="/products">Products</Link>
-              </li>
-              <Image src={Basket} alt="illustration af kurv" />
-            </ul>
-          </nav>
-        </header>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white grid grid-cols-[1fr_1fr_2fr_3fr_1fr_1fr] grid-rows-[auto_auto_auto]`}
+      >
+        <Header></Header>
         {children}
         <footer className="bg-primary-black rounded-t-lg col-start-2 col-end-6 grid">
           <div className="flex justify-between pt-14 pb-14 pr-6 pl-6">
