@@ -6,11 +6,11 @@ import Image from "next/image";
 import Logo from "../img/logo.svg";
 import { useState } from "react";
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="col-start-3 col-end-5 grid grid-rows-1">
-      <nav className="flex bg-primary-black text-secondary-gray py-6 text-xl justify-between px-10">
+    <header className="col-start-3 col-end-6 grid grid-rows-1">
+      <nav className="flex bg-primary-black text-secondary-gray py-6 text-xl justify-between px-10 rounded-md mt-4">
         <Link href="/">
           <Image src={Logo} alt="logo af brandet" />
         </Link>
