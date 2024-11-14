@@ -4,7 +4,7 @@ import Star from "../img/star.svg";
 import List from "./List";
 import { useState } from "react";
 
-const Basket = ({ isOpen, setIsOpen, cartItems }) => {
+const Basket = ({ isOpen, setIsOpen, cartItems, deleteItem }) => {
   return (
     <>
       {isOpen && (
@@ -20,7 +20,7 @@ const Basket = ({ isOpen, setIsOpen, cartItems }) => {
             >
               click mig!
             </button>
-            <List cartItems={cartItems}></List>
+            <List cartItems={cartItems} deleteItem={deleteItem}></List>
           </div>
         </section>
       )}

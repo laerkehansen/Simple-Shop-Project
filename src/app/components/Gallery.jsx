@@ -7,7 +7,12 @@ const Gallery = ({ thumbnail, images, title }) => {
   return (
     <div className="grid gap-2">
       <div className="bg-primary-gray grid place-content-center rounded-xl ">
-        <Image src={selectedProduct} height={500} width={500} alt={title}></Image>
+        <Image
+          src={selectedProduct}
+          height={500}
+          width={500}
+          alt={title}
+        ></Image>
       </div>
       <ul className="flex gap-2">
         {images.map((image, id) => (

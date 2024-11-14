@@ -28,9 +28,20 @@ const Card = ({ data, setCartItems }) => {
   return (
     <>
       {data.products.map((product) => (
-        <div key={product.id} className="bg-secondary-gray text-orange-950 rounded-xl grid p-2 gap-4">
-          <Link href={`/products/${product.id}`} className="justify-self-center">
-            <Image src={`${product.thumbnail}`} alt={product.title} width={200} height={200}></Image>
+        <div
+          key={product.id}
+          className="bg-secondary-gray text-orange-950 rounded-xl grid p-2 gap-4"
+        >
+          <Link
+            href={`/products/${product.id}`}
+            className="justify-self-center"
+          >
+            <Image
+              src={`${product.thumbnail}`}
+              alt={product.title}
+              width={200}
+              height={200}
+            ></Image>
           </Link>
           <div className="grid self-end">
             {/* <Image src={Star} /> */}
@@ -38,15 +49,22 @@ const Card = ({ data, setCartItems }) => {
               {Array.from({ length: 5 }, (_, index) => {
                 if (index < Math.floor(product.rating)) {
                   return <FaStar key={index} color="#7790ed" size={20} />;
-                } else if (index < Math.floor(product.rating) + 1 && product.rating % 1 >= 0.5) {
-                  return <FaStarHalfAlt key={index} color="#7790ed" size={20} />;
+                } else if (
+                  index < Math.floor(product.rating) + 1 &&
+                  product.rating % 1 >= 0.5
+                ) {
+                  return (
+                    <FaStarHalfAlt key={index} color="#7790ed" size={20} />
+                  );
                 } else {
                   return <FaRegStar key={index} color="#7790ed" size={20} />;
                 }
               })}
             </div>
             <div className="flex justify-between items-start">
-              <h1 className="text-xl font-bold max-w-[14rem] ">{product.title}</h1>
+              <h1 className="text-xl font-bold max-w-[14rem] ">
+                {product.title}
+              </h1>
               {/* <h2 className="font-thin">{product.brand}</h2> */}
               <p className="">{product.price} $</p>
             </div>
@@ -56,7 +74,10 @@ const Card = ({ data, setCartItems }) => {
               ))}
             </ul>
             <div className="grid justify-end">
-              <button onClick={() => addItem(product)} className="px-8 py-2 bg-[--purple] text-white rounded-md">
+              <button
+                onClick={() => addItem(product)}
+                className="px-8 py-2 bg-[--purple] text-white rounded-md"
+              >
                 Add to cart
               </button>
             </div>

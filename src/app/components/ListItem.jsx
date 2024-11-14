@@ -1,5 +1,5 @@
 import Image from "next/image";
-const ListItem = ({ title, price, tag, image }) => {
+const ListItem = ({ title, price, tag, image, deleteItem, itemId }) => {
   return (
     <li className="flex justify-around">
       <Image width={150} height={150} src={image} alt={title} />
@@ -12,7 +12,14 @@ const ListItem = ({ title, price, tag, image }) => {
         className="flex justify-center gap-2 bg-white rounded-xl
      w-fit h-fit py-0 px-3"
       >
-        <button>-</button>
+        <button
+          onClick={() => {
+            console.log(itemId, "knap id");
+            deleteItem(itemId);
+          }}
+        >
+          -
+        </button>
         <p>1</p>
         <button>+</button>
       </div>

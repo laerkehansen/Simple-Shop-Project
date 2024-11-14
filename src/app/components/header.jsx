@@ -6,7 +6,7 @@ import Image from "next/image";
 import Logo from "../img/logo.svg";
 import { useState } from "react";
 
-const Header = ({ cartItems }) => {
+const Header = ({ cartItems, deleteItem }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -22,15 +22,27 @@ const Header = ({ cartItems }) => {
           <li>
             <Link href="/products">Products</Link>
           </li>
-          <button onClick={() => setIsOpen(!isOpen)} className="relative flex items-center">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="relative flex items-center"
+          >
             <Image src={BasketIcon} alt="illustration af kurv" />
             {/* Badge til antal af varer i kurven */}
-            {cartItems.length > 0 && <span className="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs px-1">{cartItems.length}</span>}
+            {cartItems.length > 0 && (
+              <span className="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs px-1">
+                {cartItems.length}
+              </span>
+            )}
           </button>
         </ul>
       </nav>
       {/* Send cartItems som prop til Basket */}
-      <Basket isOpen={isOpen} setIsOpen={setIsOpen} cartItems={cartItems} />
+      <Basket
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        cartItems={cartItems}
+        deleteItem={deleteItem}
+      />
     </header>
   );
 };

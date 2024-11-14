@@ -24,12 +24,20 @@ const Products = () => {
     setCartItems((prevItems) => [...prevItems, product]);
   };
 
+  const deleteItem = (id) => {
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  };
+
   // Render kun komponenten, når data er hentet
   if (!data) return <div>Loading...</div>;
 
   return (
     <>
-      <Header cartItems={cartItems} />
+      <Header
+        cartItems={cartItems}
+        deleteItem={deleteItem}
+        setCartItems={setCartItems}
+      />
       <section className="grid grid-rows-[0.1fr_2fr] grid-cols-subgrid gap-4 xl:gap-6 mt-4 col-span-full lg:grid-rows-[2fr_0.1fr]">
         <Category />
         <section className="grid grid-cols-[repeat(2,minmax(0,325px))] justify-center gap-2 col-span-full mx-2  md:grid-cols-[repeat(3,minmax(0,325px))] md:col-span-full lg:col-start-2 lg:col-end-7 lg:row-start-1 ">
