@@ -5,11 +5,12 @@ import Link from "next/link";
 import Image from "next/image";
 import Logo from "../img/logo.svg";
 import { useState } from "react";
-const Header = () => {
+
+const Header = ({ cartItems }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="col-start-3 col-end-6 grid grid-rows-1 mt-4 ">
+    <header className="col-start-3 col-end-6 grid grid-rows-1 mt-4">
       <nav className="flex bg-primary-black text-secondary-gray py-6 text-xl justify-between px-10 rounded-md">
         <Link href="/">
           <Image src={Logo} alt="logo af brandet" />
@@ -22,16 +23,21 @@ const Header = () => {
             <Link href="/products">Products</Link>
           </li>
           <button
-            onClick={() => {
-              setIsOpen(!isOpen);
-              console.log("basket", isOpen);
-            }}
+            onClick={() => setIsOpen(!isOpen)}
+            className="relative flex items-center"
           >
             <Image src={BasketIcon} alt="illustration af kurv" />
+            {/* Badge til antal af varer i kurven */}
+            {cartItems.length > 0 && (
+              <span className="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs px-1">
+                {cartItems.length}
+              </span>
+            )}
           </button>
         </ul>
       </nav>
-      <Basket isOpen={isOpen} setIsOpen={setIsOpen}></Basket>
+      {/* Send cartItems som prop til Basket */}
+      <Basket isOpen={isOpen} setIsOpen={setIsOpen} cartItems={cartItems} />
     </header>
   );
 };
