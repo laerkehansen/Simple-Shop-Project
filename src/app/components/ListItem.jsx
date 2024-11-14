@@ -1,13 +1,12 @@
-import Star from "../img/star.svg";
 import Image from "next/image";
-const ListItem = () => {
+const ListItem = ({ title, price, tag, image }) => {
   return (
     <li className="flex justify-around">
-      <Image src={Star} alt="stjerne" />
+      <Image width={150} height={150} src={image} alt={title} />
       <div>
-        <h2 className="text-2xl">Apple Watch </h2>
-        <p>Brand</p>
-        <p className="pt-2">Price</p>
+        <h2 className="text-2xl">{title} </h2>
+        <p>{tag}</p>
+        <p className="pt-2">{price}</p>
       </div>
       <div
         className="flex justify-center gap-2 bg-white rounded-xl

@@ -22,17 +22,10 @@ const Header = ({ cartItems }) => {
           <li>
             <Link href="/products">Products</Link>
           </li>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="relative flex items-center"
-          >
+          <button onClick={() => setIsOpen(!isOpen)} className="relative flex items-center">
             <Image src={BasketIcon} alt="illustration af kurv" />
             {/* Badge til antal af varer i kurven */}
-            {cartItems.length > 0 && (
-              <span className="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs px-1">
-                {cartItems.length}
-              </span>
-            )}
+            {cartItems.length > 0 && <span className="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs px-1">{cartItems.length}</span>}
           </button>
         </ul>
       </nav>

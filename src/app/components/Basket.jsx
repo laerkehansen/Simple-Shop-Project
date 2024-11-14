@@ -4,7 +4,7 @@ import Star from "../img/star.svg";
 import List from "./List";
 import { useState } from "react";
 
-const Basket = ({ isOpen, setIsOpen }) => {
+const Basket = ({ isOpen, setIsOpen, cartItems }) => {
   return (
     <>
       {isOpen && (
@@ -15,11 +15,12 @@ const Basket = ({ isOpen, setIsOpen }) => {
               onClick={() => {
                 setIsOpen(!isOpen);
                 console.log("isOpen", isOpen);
+                console.log("basket New item", cartItems);
               }}
             >
               click mig!
             </button>
-            <List></List>
+            <List cartItems={cartItems}></List>
           </div>
         </section>
       )}

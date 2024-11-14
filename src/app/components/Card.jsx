@@ -7,9 +7,7 @@ import { FaStarHalfAlt } from "react-icons/fa";
 import Button from "./Button";
 import { useState } from "react";
 
-const Card = ({ data }) => {
-  const [items, setItems] = useState([]);
-
+const Card = ({ data, setCartItems }) => {
   function addItem(product) {
     // Create new item structure with a unique ID
     const newItem = {
@@ -17,12 +15,13 @@ const Card = ({ data }) => {
       text: product.title, // or any other property you want
       completed: false,
       price: product.price,
+      tag: product.tags,
+      image: product.thumbnail,
     };
 
     // Update state with new item added to items array
-    setItems((prevItems) => [...prevItems, newItem]);
+    setCartItems((prevItems) => [...prevItems, newItem]);
     console.log("Added item:", newItem);
-    console.log("new item:", items);
   }
   //   console.log(completedTasks, "pls");
 

@@ -1,9 +1,11 @@
 import ListItem from "./ListItem";
 
-const List = () => {
+const List = ({ cartItems }) => {
   return (
     <ul>
-      <ListItem></ListItem>
+      {cartItems.map((cartItem) => (
+        <ListItem key={cartItem.id} title={cartItem.text} price={cartItem.price} tag={cartItem.tag} image={cartItem.image}></ListItem>
+      ))}
     </ul>
   );
 };
